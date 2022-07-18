@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="format-detection" content="telephone=no" />
     <title>Наркоклиника</title>
+    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -2746,7 +2747,6 @@
             type="text"
             name="firstName"
             placeholder="Ваше имя"
-            required
           />
         </label>
         <label class="form__input-phone" for="phone">
@@ -2756,10 +2756,9 @@
             type="tel"
             name="phone"
             placeholder="Номер телефона"
-            required
           />
         </label>
-        <label for="sent">
+        <label id="sent-label" for="sent">
           <input class="form__input-sent" id="sent" type="submit" value="Отправить" />
         </label>
       </form>
@@ -2966,8 +2965,8 @@
           <label class="request__form-label tel" for="tel">
             <input
               class="request__form-input"
-              type="number"
-              name="tel"
+              type="tel"
+              name="phone"
               placeholder="Номер телефона"
               required
             />
