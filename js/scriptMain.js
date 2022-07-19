@@ -382,7 +382,7 @@ window.addEventListener("DOMContentLoaded", function () {
         const formData = new FormData(form);
         const json = JSON.stringify(Object.fromEntries(formData.entries()));
         console.log(json);
-        postData("http://localhost:3000/requests", json)
+        postData("https://jsonplaceholder.typicode.com/users", json)
           .then(() => {
             statusMessage.remove();
             result("success");
