@@ -13,7 +13,7 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./css/style.min.css" />
+    <link rel="stylesheet" href="./css/styleMain.min.css" />
   </head>
   <body class="main__body">
     <!-- Header -->
@@ -2758,8 +2758,8 @@
             placeholder="Номер телефона"
           />
         </label>
-        <label id="sent-label" for="sent">
-          <input class="form__input-sent" id="sent" type="submit" value="Отправить" />
+        <label id="sent-label" for="sentShortForm">
+          <input class="form__input-sent" id="sentShortForm" type="submit" value="Отправить" />
         </label>
       </form>
     </div>
@@ -2949,7 +2949,6 @@
               type="text"
               name="help"
               placeholder="Кому нужна помощь"
-              required
             />
           </label>
 
@@ -2959,7 +2958,6 @@
               type="text"
               name="firstName"
               placeholder="Ваше имя"
-              required
             />
           </label>
           <label class="request__form-label tel" for="tel">
@@ -2968,7 +2966,6 @@
               type="tel"
               name="phone"
               placeholder="Номер телефона"
-              required
             />
           </label>
           <label class="request__form-label textarea" for="textarea">
@@ -2976,7 +2973,6 @@
               class="request__form-textarea"
               name="textarea"
               placeholder="От чего лечить"
-              required
             ></textarea>
           </label>
           <label class="request__form-label place" for="place">
@@ -2985,10 +2981,17 @@
               type="text"
               name="place"
               placeholder="Где забирать"
-              required
             />
           </label>
-          <button class="request__form-btn" type="submit">Отправить</button>
+          <label id="sent-label" for="sentFullForm">
+            <input
+              class="form__input-sent request__form-btn"
+              id="sentFullForm"
+              type="submit"
+              value="Отправить"
+            />
+          </label>
+          <!-- <button class="request__form-btn" type="submit">Отправить</button> -->
         </div>
       </form>
       <img class="request__img" src="img/request-img.png" alt="request image" />
@@ -3522,5 +3525,5 @@
 </footer>
 
   </body>
-  <script src="./js/scripts.min.js"></script>
+  <script src="./js/scriptMain.min.js"></script>
 </html>

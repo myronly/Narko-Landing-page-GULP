@@ -358,7 +358,6 @@ window.addEventListener("DOMContentLoaded", function () {
     forms.forEach((item) => {
       bindPostData(item);
     });
-
     const postData = async (url, data) => {
       let res = await fetch(url, {
         method: "POST",
@@ -373,36 +372,37 @@ window.addEventListener("DOMContentLoaded", function () {
     function bindPostData(form) {
       form.addEventListener("submit", (e) => {
         e.preventDefault();
+
         const formLabel = form.querySelector("#sent-label");
         const formSent = form.querySelector(".form__input-sent");
         formSent.style.display = "none";
-        statusMessage.classList.add("form__input-sent");
+        statusMessage.classList.add("form__input-sent-loading");
         formLabel.append(statusMessage);
+
         const formData = new FormData(form);
         const json = JSON.stringify(Object.fromEntries(formData.entries()));
-
-        postData("https://jsonplaceholder.typicode.com/posts", json)
-          .then((data) => {
-            console.log(true);
+        console.log(json);
+        postData("http://localhost:3000/requests", json)
+          .then(() => {
             statusMessage.remove();
             result("success");
+            form.reset();
           })
           .catch(() => {
-            console.log(false);
-            formSent.style.display = "block";
             statusMessage.remove();
+            formSent.style.display = "block";
             result("error");
           })
           .finally(() => {
             statusMessage.remove();
             formSent.style.display = "block";
-            form.reset();
           });
       });
 
       function result(status) {
         const statusParent = document.createElement("div");
-        statusParent.classList.add(status);
+        statusParent.classList.add(status, "massage-target");
+        document.querySelectorAll(".massage-target").forEach((item) => item.remove());
         statusParent.innerHTML = `
           <svg
             class="close-img"
@@ -415,12 +415,11 @@ window.addEventListener("DOMContentLoaded", function () {
           </svg>
           <p>${status}</p>`;
         document.body.append(statusParent);
-        document.querySelector(".close-img").addEventListener("click", () => {
-          statusParent.remove();
-          console.log(status);
-        });
-        setTimeout(() => (statusParent.style.opacity = 0), 2000);
-        setTimeout(() => statusParent.remove(), 5500);
+        document
+          .querySelectorAll(".close-img")
+          .forEach((item) => item.addEventListener("click", () => statusParent.remove()));
+        setTimeout(() => (statusParent.style.opacity = 0), 1500);
+        setTimeout(() => statusParent.remove(), 4000);
       }
     }
   }
