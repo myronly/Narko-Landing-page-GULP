@@ -277,6 +277,10 @@ body.locked {
   }
 }
 
+#date {
+  display: none;
+}
+
 .header {
   z-index: 999;
   -webkit-box-flex: 0;
@@ -1333,7 +1337,6 @@ body.locked {
   background: #56bb90;
   font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
   color: #ffffff;
   -webkit-transition: 0.2s all;
   -o-transition: 0.2s all;
@@ -1343,6 +1346,27 @@ body.locked {
 .requestShort .form__input-sent:hover,
 .requestShort .form__input-sent-loading:hover {
   opacity: 0.8;
+}
+
+.requestShort .form__input-sent:disabled,
+.requestShort .form__input-sent-loading:disabled {
+  cursor: progress;
+  background: #adadadce;
+}
+
+.requestShort .form__input-sent:disabled:hover,
+.requestShort .form__input-sent-loading:disabled:hover {
+  opacity: 1;
+}
+
+.requestShort .form .form__input-sent-loading {
+  cursor: progress;
+  margin: 0 !important;
+  background: none !important;
+}
+
+.requestShort .form .form__input-sent-loading:hover {
+  opacity: 1;
 }
 
 .certificates {
@@ -1931,10 +1955,12 @@ body.locked {
   border-radius: 12px;
   resize: none;
   padding: 16px 20px 16px 52px;
+  border: 1px solid white;
 }
 
 .request__form-textarea:focus-visible {
-  outline: 1px solid #56bb90;
+  outline: none;
+  border: 1px solid #56bb90;
 }
 
 .request__form-textarea::-webkit-input-placeholder {
@@ -1966,7 +1992,6 @@ body.locked {
   background: #56bb90;
   font-weight: 500;
   font-size: 16px;
-  line-height: 24px;
   color: #ffffff;
   margin-top: 28px;
   -webkit-transition: 0.2s all;
@@ -1976,7 +2001,28 @@ body.locked {
 
 .request__form-btn:hover,
 .request__form .form__input-sent-loading:hover {
-  opacity: 0.7;
+  opacity: 0.8;
+}
+
+.request__form-btn:disabled,
+.request__form .form__input-sent-loading:disabled {
+  cursor: progress;
+  background: #adadadce;
+}
+
+.request__form-btn:disabled:hover,
+.request__form .form__input-sent-loading:disabled:hover {
+  opacity: 1;
+}
+
+.request__form .form__input-sent-loading {
+  cursor: progress;
+  margin: 0 !important;
+  background: none !important;
+}
+
+.request__form .form__input-sent-loading:hover {
+  opacity: 1;
 }
 
 .request__img {
